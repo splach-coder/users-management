@@ -1,0 +1,57 @@
+doctype html
+html
+  head
+    title Users List
+  style.
+    table {
+      border-collapse: collapse;
+      width: 100%;
+      margin-top: 100px;
+    }
+
+    th, td {
+      text-align: left;
+      padding: 8px;
+    }
+
+    tr:nth-child(even) {
+      background-color: #f2f2f2;
+    }
+
+    h1{
+      text-align: center;
+    } 
+  body
+    a(href='/create') Create
+    h1 Users
+
+    -if(message)
+      -if (message.type == 'error')
+        include err.pug 
+      -else
+        include success.pug 
+
+    table
+      tr
+        th Code
+        th Full Name
+        th Age
+        th Birthdate
+        th Telephone
+      each user in users
+        tr
+          td= user.code
+          td= user.fullname
+          td= user.age
+          td= user.birthdate
+          td= user.tel
+          td 
+            a.btn.show(href="users/user/" + user.code) show 
+          td 
+            a.btn.delete(href="users/user-delete/" + user.code) Delete 
+          td 
+            a.btn.update(href="users/update/" + user.code) Update 
+ 
+      
+    
+    

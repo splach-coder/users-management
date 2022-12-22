@@ -1,0 +1,37 @@
+doctype html
+html
+  head
+    link(rel='stylesheet', href='/css/style.css')
+    script(defer, src='/js/adduser.js')
+    style. 
+      a h1{
+        text-align: left;
+        margin-top: 10px;
+      }
+  body
+    a.back(href="/")
+      h1 &#8592; Back
+    h1 Update Users
+    form#add-user-form(onsubmit="return validateForm()", method="POST", action="/updateuser")
+      label(for='code') Code:
+      br
+      input(type='text' id='code' name='code' readonly  value=`${user.code}`)
+      br
+      label(for='fullname') Full name:
+      br
+      input(type='text' id='fullname' name='fullname'  value=`${user.fullname}`)
+      br
+      label(for='age') Age:
+      br
+      input(type='number' id='age' name='age'  value=`${user.age}`)
+      br
+      label(for='birthdate') Birth date:
+      br
+      input(type='date' id='birthdate' name='birthdate'  value=`${user.birthdate}`)
+      br
+      label(for='tel') Telephone:
+      br
+      input(type='tel' id='tel' name='tel'  value=`${user.tel}`)
+      br
+      br
+      input(type='submit' value='Submit')

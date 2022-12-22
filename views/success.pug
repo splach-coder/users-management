@@ -1,0 +1,26 @@
+link(rel='stylesheet', href='/css/error.css')
+
+.success-panel
+  .success-panel-header
+    h3.success-panel-title Success
+    button.btn.btn-close(type='button') ×
+  .success-panel-body
+    p.success-panel-message= message.text
+
+
+script.
+  const btnClose = document.querySelector('.btn-close');
+  btnClose.addEventListener('click', event => {
+    event.preventDefault();
+    const successPanel = event.target.closest('.success-panel');
+    successPanel.style.display = 'none';
+  });
+  window.onload = function() {
+    setTimeout(function(){
+      const successPanel = document.querySelector('.success-panel');
+      successPanel.style.display = 'none';
+    }, 1500);
+  }
+    
+
+  

@@ -1,0 +1,25 @@
+link(rel='stylesheet', href='/css/error.css')
+
+.error-panel
+  .error-panel-header
+    h3.error-panel-title Error
+    button.btn.btn-close(type='button') ×
+  .error-panel-body
+    p.error-panel-message= message.text
+
+script.
+  const btnClose = document.querySelector('.btn-close');
+  btnClose.addEventListener('click', event => {
+    event.preventDefault();
+    const errorPanel = event.target.closest('.error-panel');
+    errorPanel.style.display = 'none';
+  });
+  window.onload = function() {
+    setTimeout(function(){
+      const errorPanel = document.querySelector('.error-panel');
+      errorPanel.style.display = 'none';
+    }, 1500);
+  }
+    
+
+  
